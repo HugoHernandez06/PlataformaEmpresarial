@@ -1,0 +1,75 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace NumerosPrimos
+{
+    class Primo
+    {
+        private int num;
+
+        public Primo()
+        {
+            num = 1;
+        }
+
+        public Primo(int Primo)
+        {
+            this.num = Primo;
+        }
+     
+        public int DeterminarPrimo(int posicion)
+        {
+
+            int cont = 0;
+
+            while (cont < posicion)
+            {
+                num = this.num + 1;
+                int num1 = this.num - 1;
+                while (num1 >= 1)
+                {
+                    if (this.num % num1 == 0)
+                    {
+                        break;
+                    }
+
+                    num1 = num1 - 1;
+                }
+
+                if (num1 <= 1)
+                {
+                    cont = cont + 1;
+
+                }
+            }
+
+            return this.num;
+        }
+    }
+}
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace NumerosPrimos
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Primo num = new Primo();
+            Console.WriteLine("Ingrese la posicion deseada a conocer el numero primo");
+            int posicion = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("El numero primo de la posicion " + posicion + " es ");
+            Console.WriteLine(num.DeterminarPrimo(posicion));
+            Console.ReadKey();
+        }
+    
+    }
+}
